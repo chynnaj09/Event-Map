@@ -1,0 +1,80 @@
+body{
+    background-color: rgb(50, 54, 57);
+}
+
+img{
+    width: 100%;
+}
+
+
+
+.navbar{
+    color: rgb(137, 170, 240);
+    background-color: silver;
+    border-width: 0px 0px 3px 0px;
+    border-color : white;
+    border-style: solid;
+}
+
+.eachGIF{
+    /* border-style: solid; */
+    /* border-width: 1px; */
+    /* border-color: lightblue; */
+    /* margin: 0px 0px 0px 0px; */
+    /* padding: 2px 2px 3px 3px; */
+    color: gray;
+}
+
+
+#displayBtn{
+    position: absolute;
+    width: 100%;
+    top: 38%;
+    /* z-index: 2; */
+    text-align: center;
+    /* opacity: 2; */
+}
+
+#myContainer{
+    /* position: absolute;*/
+    /* left : 20%; */
+    text-align: center; 
+    background-color: rgb(150, 25, 25);
+    /* opacity: 0.8; */
+    /* color : white; */
+   /* height: 600px;
+    width: 60%;
+    min-width: 320px;
+    margin: 10px 5px 0px 5px;
+    padding: 5px 0px 10px 0px; */
+}
+
+#buttons{
+    color: white;
+    padding: 5px 15px 5px 15px;
+    text-align: center;
+}
+#resultsHeading{
+    color: gray;
+    padding: 5px 15px 5px 15px;
+    text-align: left;
+}
+
+#eachGIF.hover{
+    color:lightblue;
+}
+
+
+@media only screen and (max-width: 500px)  {
+
+    #gameBoard{
+        left : 5%;
+        width: 90%;
+        min-width: 320px;
+    }
+
+   
+    
+
+
+}

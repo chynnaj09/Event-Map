@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="sgAPI.js"></script>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Event Map</title>
+</head>
+<body>
+
+     <nav class="navbar navbar-light bg-dark">
+            <h4><em style="color: yellow;">Event Map <em> Near Me</em> 
+               </h4>
+            <!-- <form class="form-inline">
+              <input id="newSearch" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button id="addButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Add</button>
+            </form> -->
+          </nav>
+    <div id="main" class="container">
+        <div class="row">
+            <div class="col-2" id="col1">
+                <form name="taxonomies" >
+                    <div text-align="center">
+                    <select name="mydropdown" id="mydropdown">
+                    
+                    </select>
+                    <button id="addButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Add</button>
+                    </div>
+                    </form>
+                    <div id="buttons"></div>
+            </div>
+            <div class="col-10" id="display">
+                <div id="resultsHeading"></div>
+            </div>  
+        </div>
+    </div>
+     
+
+</body>
+</html>
+
