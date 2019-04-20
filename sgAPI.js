@@ -54,7 +54,7 @@ function displayResults(newSubject){
 
       //Update the resultsHeading
       $("#resultsHeading").empty();
-      $("#resultsHeading").html('<span>Showing 10 results for : ' + newSubject + ' <button class="btn btn-outline-secondary btn-sm" id="deleteBtn" data-value="'+newSubject+'">Delete button</button>');
+      $("#resultsHeading").html('<span>Showing 10 results for : ' + newSubject + ' in Zipcode ' + zipcode + '<button class="btn btn-outline-secondary btn-sm" id="deleteBtn" data-value="'+newSubject+'">Delete button</button>');
 
 
     // Performing an AJAX request with the queryURL
@@ -75,13 +75,16 @@ function displayResults(newSubject){
 
           // Creating a paragraph tag with the result item's rating
           var p = $("<p>");
-           p.html('<br>Event Name: ' + results.events[i].short_title);
-           p.append(" Venue name: ");
+           p.html('<br>' + (i+1) + '. ' + results.events[i].short_title);
+           p.append(" @ ");
            p.append(results.events[i].venue.name);
+           p.append(" on ");
+           p.append(results.events[i].datetime_local);
            p.append(" Latitude : ");
            p.append(results.events[i].venue.location.lat);
            p.append(" Longitude : ");
            p.append(results.events[i].venue.location.lon);
+           p.attr("id", "newSearch");
            $display.append(p);
         }
         
@@ -107,80 +110,35 @@ function createPullDown(){
         var results = response;
 
         // Looping through each result item
-        for (var i = 0; i < results.length; i++) {
+        for (var i = 0; i < results.taxonomies.length; i++) {
 
           // Creating and storing a div tag
-          var gifDiv = $("#mydropdown");
+          var dropDownList = $("#mydropdown");
          
           // Creating a paragraph tag with the result item's rating
           var p = $("<option>");
-           p.attr("value", response.taxonomies[i].name);
+           p.attr("data-value", response.taxonomies[i].name);
+           p.text(response.taxonomies[i].name);
+           dropDownList.prepend(p);
+
            console.log(response.taxonomies[i].name);
-          // Creating and storing an imfdage tag
-          var subjectImg = $("<img>");
-          // Setting the src attribute of the image to a property pulled off the result item
-
-          subjectImg.attr("src", results[i].images["480w_still"].url);
-          subjectImg.attr("data-animate", results[i].images.fixed_height.url);
-          subjectImg.attr("data-still", results[i].images.fixed_width_still.url);
-          subjectImg.attr("data-state", "still");
-          subjectImg.addClass("gif");
-
-          gifDiv.prepend(p);
-          gifDiv.prepend(subjectImg);
-          
-          
-          // Prepend GIF into 3 columns
-            if(i%3===0){
-              console.log("0000000000");
-              // Prependng the gifDiv to the HTML page in the "#displayGIF" div
-              $("#col1").prepend(gifDiv);
-            } else if (i%3===1){
-              console.log("11111111");
-              $("#col2").prepend(gifDiv);
-              console.log("2222222222");
-            } else if (i%3===2){
-              $("#col3").prepend(gifDiv);
-            }
+    
         }
       });
 };
 
 
-//Pause/Play GIF image Click Handler ------------------------------------------------
-$display.on("click", ".gif", function() {
-    console.log("pause button");
-  // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
-  var state = $(this).attr("data-state");
-  // If the clicked image's state is still, update its src attribute to what its data-animate value is.
-  // Then, set the image's data-state to animate
-  // Else set src to the data-still value
-  if (state === "still") {
-    $(this).attr("src", $(this).attr("data-animate"));
-    $(this).attr("data-state", "animate");
-    $(this).css("border-color", "yellow");
-    $(this).css("border-width", "1");
-    $(this).css("border-style", "solid");
-    $(this).attr("alt", "Click to Pause");
-  } else {
-    $(this).attr("src", $(this).attr("data-still"));
-    $(this).attr("data-state", "still");
-    $(this).attr("data-state", "animate");
-    $(this).css("border-width", "0");
-    $(this).attr("alt", "Click to Animate");
-  }
-  
-});
+
 
 
 //Adds new Button ----------------------------------------------------------------------------
 $("#addButton").on("click", function(){
     event.preventDefault();
     console.log("new search");
-    if($("#newSearch").val() != "" && (buttons.indexOf($("#newSearch").val()) < 0)){
-    buttons.push($("#newSearch").val());
+    if(buttons.indexOf($("#newsearch").val()) < 0){
+    buttons.push($("#newsearch").val());
     renderButtons();
-    displayResults($("#newSearch").val());
+    displayResults($("#newsearch").val());
     } else {
       //invalid entry
       alert("Please enter a valid entry.");
