@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
 
+     <!-- Link to Moment.js should go here -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type='text/javascript' src='config.js'></script>
 
@@ -20,14 +23,16 @@
     
     //Set up variable for query
         var taxonomy = "concert";
+        var date = moment().format("YYYY-MM-DD");
         var zipcode = 75238;
         var id = config.SEATGEEK_ID;
         var $display = $("#display");
+        
 
         function displayResults(newSubject){
     
     
-        var queryURL = 'http://api.seatgeek.com/2/events?client_id=' + id + '&taxonomies.name=' + newSubject + '&postal_code=' + zipcode;
+        var queryURL = 'http://api.seatgeek.com/2/events?client_id=' + id + '&taxonomies.name=' + newSubject + '&postal_code=' + zipcode + '&datetime_utc.gt=' + date;
 
           //Update the resultsHeading
          $("#resultsHeading").empty();
