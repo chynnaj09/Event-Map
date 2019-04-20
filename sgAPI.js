@@ -113,7 +113,7 @@ function createPullDown(){
         for (var i = 0; i < results.taxonomies.length; i++) {
 
           // Creating and storing a div tag
-          var dropDownList = $("#mydropdown");
+          var dropDownList = $("#taxonomies");
          
           // Creating a paragraph tag with the result item's rating
           var p = $("<option>");
@@ -134,11 +134,12 @@ function createPullDown(){
 //Adds new Button ----------------------------------------------------------------------------
 $("#addButton").on("click", function(){
     event.preventDefault();
+    var taxonomy = $('#taxonomies').find(":selected").text();
     console.log("new search");
-    if(buttons.indexOf($("#newsearch").val()) < 0){
-    buttons.push($("#newsearch").val());
+    if(buttons.indexOf(taxonomy) < 0){
+    buttons.push(taxonomy);
     renderButtons();
-    displayResults($("#newsearch").val());
+    displayResults(taxonomy);
     } else {
       //invalid entry
       alert("Please enter a valid entry.");
