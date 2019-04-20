@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SeatGeek API</title>
+</head>
+<body>
+    Console Log for to see API response object
+    <div id="display"></div>
+
+    <script>
+    
+    //Set up variable for query
+        var taxonomy = "concert";
+        var zipcode = 75238;
+        var id = 	'MzI4Mzc0M3wxNTU1NTUzMjg4LjU3';
+        var $display = $("#display");
+
+        function displayResults(newSubject){
+    
+    
+        var queryURL = 'http://api.seatgeek.com/2/events?client_id=' + id + '&taxonomies.name=' + newSubject + '&postal_code=' + zipcode;
+
+          //Update the resultsHeading
+         $("#resultsHeading").empty();
+         $("#resultsHeading").html('<span>Showing 10 results for : ' + newSubject + ' in Zipcode ' + zipcode + '<button class="btn btn-outline-secondary btn-sm" id="deleteBtn" data-value="'+newSubject+'">Delete button</button>');
+
+
+            // Performing an AJAX request with the queryURL
+            $.ajax({
+            url: queryURL,
+            method: "GET"
+            })
+            // After data comes back from the request
+            .then(function(response) {
+                //console log query
+                console.log("QUERY: " + queryURL);
+
+                //console log response object
+                console.log(response);
+                
+                // storing the data from the AJAX request in the results variable
+                var results = response;
+
+                // Looping through each result item
+                for (var i = 0; i < results.events.length; i++) {
+
+                // Creating a paragraph tag with the result item's rating
+                var p = $("<p>");
+                p.html('<br>' + (i+1) + '. ' + results.events[i].short_title);
+                p.append(" @ ");
+                p.append(results.events[i].venue.name);
+                p.append(" on ");
+                p.append(results.events[i].datetime_local);
+                p.append(" Latitude : ");
+                p.append(results.events[i].venue.location.lat);
+                p.append(" Longitude : ");
+                p.append(results.events[i].venue.location.lon);
+                p.attr("id", "newSearch");
+                $display.append(p);
+                }
+                
+            });
+        };
+
+        displayResults(taxonomy);
+
+    </script>
+
+</body>
+</html>
