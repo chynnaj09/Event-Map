@@ -3,7 +3,7 @@
 <head>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <script type='text/javascript' src='config.js'></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,9 @@
     <title>SeatGeek API</title>
 </head>
 <body>
-    Console Log for to see API response object
+    Console Log to see API response object
+
+    <a href="https://platform.seatgeek.com">https://platform.seatgeek.com</a>
     <div id="display"></div>
 
     <script>
@@ -19,7 +21,7 @@
     //Set up variable for query
         var taxonomy = "concert";
         var zipcode = 75238;
-        var id = 	'MzI4Mzc0M3wxNTU1NTUzMjg4LjU3';
+        var id = config.SEATGEEK_ID;
         var $display = $("#display");
 
         function displayResults(newSubject){
