@@ -6,12 +6,3 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
-#map {
-    height: 50%;
-}
-
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
