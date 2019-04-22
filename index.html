@@ -1,30 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css">
     <title>Document</title>
 </head>
+
 <body>
     <div id="color" class="jumbotron jumbotron-fluid">
         <div class="container">
             <h1 id="font" class="display-4">Event Map</h1>
             <h3 class="text-center">This Is Where You Want To Be. </h3>
-            <nav >
-                <form class="form-horizontal" class="form-inline justify-content-center" >
-                    <input class="form-control mr-sm-6" type="search" placeholder="Search by Venue Or Zipcode" aria-label="Search">
-                    <button class="btn btn-outline-dark my-2 my-sm-4" type="submit">Search</button>
+            <nav>
+                <form class="form-horizontal" class="form-inline justify-content-center">
+                    <input class="form-control mr-sm-6" id="userInput" type="search"
+                        placeholder="Search by Venue Or Zipcode" aria-label="Search">
+                    <button class="btn btn-outline-dark my-2 my-sm-4" id="userSearch" type="submit">Search</button>
                 </form>
             </nav>
         </div>
     </div>
 
-<div id="wrapper">
-    <div class="events"></div>
+    <div id="wrapper">
+        <div class="events"></div>
     </div>
+
+    <div id="map"></div>
+
+    <div id="listing">
+        <table id="resultsTable">
+            <tbody id="results"></tbody>
+        </table>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="tonyScript.js"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR-API-KEY&libraries=places&callback=initMap"
+        async defer></script>
 </body>
+
 </html>
