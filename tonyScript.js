@@ -7,11 +7,11 @@ var beginSearch = document.getElementById('userSearch');
 //Start declaring variables for SeatGeek
 var id = 	'MzI4Mzc0M3wxNTU1NTUzMjg4LjU3';
 var zipcode = 75238;
-var userCity = "Dallas";
+// var userCity = "Dallas";
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 15,
+      zoom: 4,
       center: {lat: 32.7838, lng: -96.7832},
       mapTypeControl: false,
       panControl: false,
@@ -27,15 +27,17 @@ function initMap() {
     places = new google.maps.places.PlacesService(map);
   
     beginSearch.addEventListener('click', onPlaceChanged);
+    
   }
 
 
 function onPlaceChanged(e) {
     e.preventDefault();
     var place = autocomplete.getPlace();
+    console.log(place);
     if (place.geometry) {
       map.panTo(place.geometry.location);
-      map.setZoom(15);
+      map.setZoom(14);
       placeMarkers();
     } else {
       document.getElementById('userInput').placeholder = 'Enter a city';
@@ -43,6 +45,8 @@ function onPlaceChanged(e) {
   }
 
   function placeMarkers() {
+    var place = autocomplete.getPlace();
+    var userCity = place.address_components[0].short_name;
     //calling ajax function
     var queryURL = 'https://api.seatgeek.com/2/events?client_id=' + id + '&venue.city=' + userCity;
     $.ajax({
