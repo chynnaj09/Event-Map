@@ -7,24 +7,68 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="./style.css">
-         <title>Document</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+            integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+         <title>Event Map</title>
 </head>
 <body>
+<!-- Start of Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Event Map</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Concerts <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Arts & Theater</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Sports</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- End of Navbar -->
+
+<!-- Jumbotron -->
     <div id="color" class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 id="font" class="display-4">Event Map</h1>
-            <h3 class="text-center">This Is Where You Want To Be. </h3>
-            <nav >
-                <form class="form-horizontal" class="form-inline justify-content-center" >
-                    <input class="form-control mr-sm-6" type="search" placeholder="Search by Venue Or Zipcode" aria-label="Search">
-                    <button class="btn btn-outline-dark my-2 my-sm-4" type="submit">Search</button>
+            <h1 id="font" class="display-4"></h1>
+            <h2 class="text-center" id="word">This Is Where You Want To Be. </h2>
+        <br />
+        <!-- search bar -->
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8">
+                <form class="card card-sm">
+                    <div class="card-body row no-gutters align-items-center">
+                        <div class="col-auto">
+                            <i class="fas fa-search h4 text-body"></i>
+                        </div>
+                        <!--end of col-->
+                        <div class="col">
+                            <input class="form-control form-control-lg form-control-borderless" type="search"
+                                placeholder="Search by City">
+                        </div>
+                        <!--end of col-->
+                        <div class="col-auto">
+                            <button class="btn btn-lg btn-outline-dark" type="submit">Search</button>
+                        </div>
+                        <!--end of col-->
+                    </div>
                 </form>
-            </nav>
-            <div id="button" class="text-center">
-                <button type="button" class="btn btn-dark">Concerts</button>
-                <button type="button" class="btn btn-dark">Basketball</button>
-                <button type="button" class="btn btn-dark">Baseball</button>
-                <button type="button" class="btn btn-dark">Broadway</button>
+            </div>
+        </div>
+            <!-- buttons -->
+            <div class="text-center container">
+                <button type="button" class="btn btn-outline-dark btn-xl">John Mayer</button>
+                <button type="button" class="btn btn-outline-dark btn-xl">Dallas Mavericks</button>
+                <button type="button" class="btn btn-outline-dark btn-xl">Texas Rangers</button>
+                <button type="button" class="btn btn-outline-dark btn-xl">Hamilton</button>
              </div>
         </div>
     </div>

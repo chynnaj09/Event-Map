@@ -1,8 +1,29 @@
 #color {
-    background-color: cornflowerblue;
+    background-color: steelblue;
 }
 
 #font {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
+.btn-xl {
+  padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 5px;
+    width: 24%;
+    margin-top: 60px;
+}
+
+#word {
+    color: aliceblue;
+}
+
+.form-control-borderless {
+    border: none;
+}
+
+/* .form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+} */
