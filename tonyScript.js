@@ -59,12 +59,13 @@ function placeMarkers() {
 
     //loop for setting markers
     for (var i = 0; i < response.events.length; i++) {
+      var dateFormatted = moment(response.events[i].datetime_local).format('MMMM Do YYYY, h:mm:ss a');
       var contentString = '<div id="content">' +
         '<div id="siteNotice">' +
         '</div>' +
         '<h3 id="firstHeading" class="firstHeading">' + response.events[i].title + '</h3>' +
         '<div id="bodyContent">' +
-        '<p>Date: ' + response.events[i].datetime_local + '</p>' +
+        '<p>Date: ' + dateFormatted + '</p>' +
         '<p>Average Price: $' + response.events[i].stats.average_price + '</p>' +
         '<p>Location: ' + response.events[i].venue.address +
         ' ' + response.events[i].venue.extended_address + '</p>' +
