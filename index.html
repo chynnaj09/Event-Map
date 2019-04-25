@@ -7,8 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-    crossorigin="anonymous">
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
 </head>
 
@@ -24,12 +23,14 @@
                     <button class="btn btn-outline-dark my-2 my-sm-4" id="userSearch" type="submit">Search</button>
                 </form>
             </nav>
-            <div id="button" class="text-center">
-                <button type="button" class="btn btn-dark">Concerts</button>
-                <button type="button" class="btn btn-dark">Basketball</button>
-                <button type="button" class="btn btn-dark">Baseball</button>
-                <button type="button" class="btn btn-dark">Broadway</button>
-             </div>
+            <div class="text-center container">
+                <button type="button" class="btn
+                    btn-outline-dark btn-xl" id="btnOne" value="John Mayer">John Mayer</button>
+                <button type="button" class="btn
+                    btn-outline-dark btn-xl" value="Dallas Mavericks">Dallas Mavericks</button>
+                <button type="button" class="btn btn-outline-dark btn-xl" value="Texas Rangers">Texas Rangers</button>
+                <button type="button" class="btn btn-outline-dark btn-xl" value="Hamilton">Hamilton</button>
+            </div>
         </div>
     </div>
 
@@ -39,10 +40,10 @@
 
     <div id="map"></div>
 
-    <div id="listing">
-        <table id="resultsTable">
-            <tbody id="results"></tbody>
-        </table>
+    <div class="card mt-3 mr-3 ml-3">
+        <h5 class="card-header">Events</h5>
+        <div class="row mr-1 ml-1">
+        </div>
     </div>
 
 
