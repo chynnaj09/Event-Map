@@ -52,11 +52,6 @@ function placeMarkers() {
     url: queryURL,
     method: "GET"
   }).then(function (response) {
-    console.log(queryURL);
-    console.log(response);
-    console.log(response.events[0].venue.location.lat);
-    console.log(response.events[0].venue.location.lon);
-
     //loop for setting markers
     for (var i = 0; i < response.events.length; i++) {
       var dateFormatted = moment(response.events[i].datetime_local).format('MMMM Do YYYY, h:mm:ss a');
@@ -98,6 +93,9 @@ function placeMarkers() {
 }
 
 document.getElementById("btnOne").addEventListener("click", buttonResult);
+document.getElementById("btnTwo").addEventListener("click", sportEvent);
+document.getElementById("btnThree").addEventListener("click", sportEvent);
+document.getElementById("btnFour").addEventListener("click", buttonResult);
 
 function allResults() {
 
@@ -110,7 +108,6 @@ function allResults() {
     url: queryURL,
     method: "GET"
   }).then(function(response) {
-    console.log(response)
     $(".row").empty();
     for (var x = 0; x < response.events.length; x++) {
       var newCard = document.createElement("div");
@@ -142,15 +139,54 @@ function allResults() {
 }
 
 function buttonResult() {
-  console.log($(this).val());
-  var queryURL = 'https://api.seatgeek.com/2/events?client_id=' + id + '&venue.city=Dallas&';
+  var btnClick = $(this).val();
+
+  var queryURL = 'https://api.seatgeek.com/2/events?client_id=' + id + '&performers.slug=' + btnClick + '&venue.city=Dallas';
 
   $.ajax({
     url: queryURL,
     method: "GET"
   }).then(function(response) {
-    console.log(response)
+    for (var x = 0; x < response.events.length; x++) {
+      $(".row").empty();
+      var newCard = document.createElement("div");
+      newCard.className = "card mr-2 ml-2 mt-2";
+      newCard.style.width = "18em";
+      var newImage = document.createElement("img");
+      newImage.src = response.events[x].performers[0].image;
+      newCard.append(newImage);
+      var newBody = document.createElement("div");
+      newBody.className = "card-body";
+      newCard.append(newBody);
+      var newTitle = document.createElement("h5");
+      newTitle.className = "card-title";
+      newTitle.innerHTML = response.events[x].title;
+      newCard.append(newTitle)
+      var newText = document.createElement("p");
+      newText.className = "card-text";
+      newText.innerHTML = "Location: " + response.events[x].venue.address + " " + response.events[x].venue.extended_address;
+      newCard.append(newText);
+      var newBut = document.createElement("a");
+      newBut.setAttribute("href", response.events[x].url);
+      newBut.className = "btn btn-primary";
+      newBut.style.color = "white";
+      newBut.innerHTML = "Buy your tickets now!";
+      newCard.append(newBut);
+      $(".row").append(newCard);
+    }
+  })
+}
 
+function sportEvent() {
+  var btnClick = $(this).val();
+
+  var queryURL = 'https://api.seatgeek.com/2/events?client_id=' + id + '&performers.slug=' + btnClick;
+
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+    $(".row").empty();
     for (var x = 0; x < response.events.length; x++) {
       var newCard = document.createElement("div");
       newCard.className = "card mr-2 ml-2 mt-2";
@@ -179,4 +215,6 @@ function buttonResult() {
     }
   })
 }
+
+
 
