@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
@@ -13,24 +15,57 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Event Map</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Concerts <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Arts & Theater</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Sports</a>
+                </li>
+            </ul>
+            <!-- <a class="navbar-brand" href="#">Sign In</a> -->
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#loginModal">
+                Sign In
+            </button>
+        </div>
+    </nav>
+
     <div id="color" class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 id="font" class="display-4">Event Map</h1>
             <h3 class="text-center">This Is Where You Want To Be. </h3>
             <nav>
                 <form class="form-horizontal" class="form-inline justify-content-center">
-                    <input class="form-control mr-sm-6" id="userInput" type="search"
-                        placeholder="Search by Venue Or Zipcode" aria-label="Search">
-                    <button class="btn btn-outline-dark my-2 my-sm-4" id="userSearch" type="submit">Search</button>
+                    <div class="input-group input-group-lg mb-3">
+                        <div class="input-group-prepend form_prepend">
+                            <span class="input-group-text">
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </div>
+                        <input type="text" class="form-control" id="userInput" placeholder="Search by City"
+                            aria-label="Search" aria-describedby="basic-addon1">
+                        <div class="input-group-append">
+                            <button class="btn btn-secondary" id="userSearch" type="submit">Search</button>
+                        </div>
+                    </div>
                 </form>
             </nav>
             <div class="text-center container">
                 <button type="button" class="btn
-                    btn-outline-dark btn-xl" id="btnOne" value="John Mayer">John Mayer</button>
+                    btn-outline-dark btn-xl" id="btnOne" value="John-Mayer">John Mayer</button>
                 <button type="button" class="btn
-                    btn-outline-dark btn-xl" value="Dallas Mavericks">Dallas Mavericks</button>
-                <button type="button" class="btn btn-outline-dark btn-xl" value="Texas Rangers">Texas Rangers</button>
-                <button type="button" class="btn btn-outline-dark btn-xl" value="Hamilton">Hamilton</button>
+                    btn-outline-dark btn-xl" id="btnTwo" value="dallas-mavericks">Dallas Mavericks</button>
+                <button type="button" class="btn btn-outline-dark btn-xl" id="btnThree" value="Texas-Rangers">Texas Rangers</button>
+                <button type="button" class="btn btn-outline-dark btn-xl" id="btnFour" value="Hamilton">Hamilton</button>
             </div>
         </div>
     </div>
@@ -55,10 +90,9 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <script src="tonyScript.js"></script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=YOUR KEY HERE&libraries=places&callback=initMap"
-        async defer></script>
-    
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOURKEYHERElibraries=places&callback=initMap" async
+        defer></script>
+
 </body>
 
 </html>
